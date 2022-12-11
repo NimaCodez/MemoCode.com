@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk&family=Poppins:wght@300;400&family=Roboto+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Hanken Grotesk";
+}
+
+body {
+  background-color: #1e1e1e;
+  min-height: 100vh;
+}
+
+.wrapper {
+  padding: 4.5em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #7026B9 #0a0a0a;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #7026B9;
+  border-radius: 10px;
+}

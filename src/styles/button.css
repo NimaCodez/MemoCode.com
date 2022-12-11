@@ -1,0 +1,13 @@
+a {
+    display: inline-block;
+    margin-top: 2em;
+    padding: .8em 1em;
+    background-color: #7026B9;
+    color: #fff;
+    border-radius: .3em;
+    text-decoration: none;
+}
+
+i {
+    color: #fff;
+}

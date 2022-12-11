@@ -1,0 +1,18 @@
+header {
+    background-color: #2d2d2d;
+    padding: 2em 4.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    color: #e0dada;
+}
+
+input {
+    padding: .8em 1em;
+    border-radius: .3em;
+    border: none;
+    outline: none;
+}
