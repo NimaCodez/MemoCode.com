@@ -1,0 +1,26 @@
+[
+    {
+        "Id": 1,
+        "title": "MemoBook With React!",
+        "icon": "fa-solid fa-book",
+        "bodyText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+    },
+    {
+        "Id": 2,
+        "title": "MemoBook With Vue!",
+        "icon": "fa-solid fa-book",
+        "bodyText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1600s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+    },
+    {
+        "Id": 3,
+        "title": "Back-end Development With Express",
+        "icon": "fa-solid fa-book",
+        "bodyText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+    },
+    {
+        "Id": 4,
+        "title": "Nodejs Runtime!",
+        "icon": "fa-solid fa-book",
+        "bodyText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+    }
+]
