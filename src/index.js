@@ -1,39 +1,56 @@
-import React, { Component } from "react";
+import React, { memo, useEffect, useState } from "react";
 import Header from "./components/header";
 import './styles/index.css';
 import Card from "./components/card";
 import { createRoot } from 'react-dom/client';
-import Memos from './db.json';
+// import Memos from './db.json';
+import { FetchData } from "./hooks/getMemos.hook";
 
-class App extends Component {
+const App = () => {
 
-    state = {
-        filteredMemos: Memos
+    async function GetData() {
+        const data = await FetchData('https://devmemos.iran.liara.run/memos');
+        const { response } = data;
+        setMemos(response);
     }
+    
+    const [memos, setMemos] = useState([]);
 
-    GetKeywords = (event) => {
+    useEffect(() => {
+        GetData()
+    }, [])
+
+
+    const GetKeywords = (event) => {
         let keywords = event.target.value;
-        const filtered = Memos.filter((item) => {
-            return item.title.toLowerCase().includes(keywords.toLowerCase()) || item.bodyText.toLowerCase().includes(keywords.toLowerCase())
+        
+        if (keywords == "")  {
+            console.log('in if');
+            return setMemos(memos);
+        }
+
+        const filtered = memos.filter((item) => {
+            return item.title.toLowerCase().includes(keywords.toLowerCase()) || item.content.toLowerCase().includes(keywords.toLowerCase())
         })
 
-        this.setState({
-            filteredMemos: filtered
-        })
+        console.log('memos: ', memos)
+        console.log('fil: ', filtered)
+        setMemos(filtered)
+        console.log('memos: ', memos)
     }
 
-    render() {
-        return (
-            <div>
-                <Header FilterTitles={this.GetKeywords}/>
-                <div className="wrapper">
-                    {this.state.filteredMemos.map(memo => (
-                        <Card icon={memo.icon} title={memo.title} bodyText={memo.bodyText} key={memo.Id} />
-                    ))}
-                </div>
+    return (
+        <>
+            <Header GetKeywords={GetKeywords} />
+            <div className="wrapper">
+                {
+                    memos.map((memo, index) => (
+                        <Card key={index} intro={memo.intro} title={memo.title} banner={memo.banner} link={memo.memId}/>
+                    ))
+                }
             </div>
-        )
-    }
+        </>
+    )
 }
 
 const container = document.getElementById('root');
