@@ -2,11 +2,10 @@ import React from "react";
 import ContinueButton from "./continueReading";
 import '../styles/card.css';
 
-const Card = ({ icon, title, intro, banner, handleClick, link }) => {
+const Memo = ({ title, intro, banner, handleClick, link }) => {
     return (
         <div className="card-wrapper">
             <div className="card-header">
-                    <i className={icon}></i>
                     <h2 className="memo-title">{title}</h2>
             </div>
             <img src={banner} />
@@ -17,4 +16,4 @@ const Card = ({ icon, title, intro, banner, handleClick, link }) => {
     )
 }
 
-export default Card;
+export default Memo;

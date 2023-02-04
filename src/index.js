@@ -1,10 +1,11 @@
-import React, { memo, useEffect, useState } from "react";
-import Header from "./components/header";
+import React, { useEffect, useState } from "react";
 import './styles/index.css';
-import Card from "./components/card";
+import Header from "./components/header";
+import FetchData from "./hooks/getMemos.hook";
+import Login from "./components/login";
 import { createRoot } from 'react-dom/client';
-// import Memos from './db.json';
-import { FetchData } from "./hooks/getMemos.hook";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MemoWrapper from "./components/memoWrapper";
 
 const App = () => {
 
@@ -12,44 +13,39 @@ const App = () => {
         const data = await FetchData('https://devmemos.iran.liara.run/memos');
         const { response } = data;
         setMemos(response);
+        setFiltred(response);
     }
-    
+
     const [memos, setMemos] = useState([]);
 
     useEffect(() => {
         GetData()
     }, [])
 
+    const [filtered, setFiltred] = useState([]);
 
     const GetKeywords = (event) => {
         let keywords = event.target.value;
-        
-        if (keywords == "")  {
-            console.log('in if');
-            return setMemos(memos);
+
+        if (keywords == "") {
+            return setFiltred(memos);
         }
 
         const filtered = memos.filter((item) => {
             return item.title.toLowerCase().includes(keywords.toLowerCase()) || item.content.toLowerCase().includes(keywords.toLowerCase())
         })
 
-        console.log('memos: ', memos)
-        console.log('fil: ', filtered)
-        setMemos(filtered)
-        console.log('memos: ', memos)
+        setFiltred(filtered);
     }
 
     return (
-        <>
+        <Router>
             <Header GetKeywords={GetKeywords} />
-            <div className="wrapper">
-                {
-                    memos.map((memo, index) => (
-                        <Card key={index} intro={memo.intro} title={memo.title} banner={memo.banner} link={memo.memId}/>
-                    ))
-                }
-            </div>
-        </>
+            <Routes>
+                <Route path="/" element={ <MemoWrapper filtered={filtered} /> } />
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </Router>
     )
 }
 
