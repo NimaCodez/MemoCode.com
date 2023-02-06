@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Header = ({ GetKeywords }) => {
     return (
         <header>
-            <h1>DevMemos.co</h1>
+            <h1><Link to="/" className="header-link">DevMemos.co</Link></h1>
             <input type={"text"} placeholder="Search memos..." onChange={ GetKeywords } ></input>
-            <Link to={'/login'}> Login | Register </Link>
+            <Link to={'/register'} className='login-btn'> Login | Register </Link>
         </header>
     )
 }

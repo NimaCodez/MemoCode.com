@@ -1,0 +1,32 @@
+form {
+    width: 20%;
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    border-radius: .6em;
+}
+
+.input-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.input-group input {
+    background-color: #5a5a5a;
+    padding: 1em 2em;
+    border-radius: .4em;
+    margin: .4em 0;
+}
+
+span {
+    display: inline-block;
+}
+
+.form-header {
+    color: #2d2d2d;
+    margin-left: 3em;
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './styles/index.css';
 import Header from "./components/header";
 import FetchData from "./hooks/getMemos.hook";
-import Login from "./components/login";
+import Register from "./components/register";
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MemoWrapper from "./components/memoWrapper";
@@ -43,7 +43,7 @@ const App = () => {
             <Header GetKeywords={GetKeywords} />
             <Routes>
                 <Route path="/" element={ <MemoWrapper filtered={filtered} /> } />
-                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
             </Routes>
         </Router>
     )
